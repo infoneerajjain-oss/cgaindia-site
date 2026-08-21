@@ -29,15 +29,24 @@
       btn.setAttribute('aria-expanded', yes ? 'true' : 'false');
     };
 
+    var wide = function () { return window.matchMedia('(min-width: 981px)').matches; };
+
     btn.addEventListener('click', function (e) {
       e.preventDefault();
+      if (wide()) {
+        /* On desktop the panel opens on hover, so a click means
+           "take me to the services page" rather than "close what I
+           just opened". */
+        var all = btn.getAttribute('data-drop-href');
+        if (all) { window.location.href = all; return; }
+      }
       open(!drop.classList.contains('is-open'));
     });
-    drop.addEventListener('mouseenter', function () {
-      if (window.matchMedia('(min-width: 981px)').matches) open(true);
-    });
-    drop.addEventListener('mouseleave', function () {
-      if (window.matchMedia('(min-width: 981px)').matches) open(false);
+    drop.addEventListener('mouseenter', function () { if (wide()) open(true); });
+    drop.addEventListener('mouseleave', function () { if (wide()) open(false); });
+    drop.addEventListener('focusin', function () { open(true); });
+    drop.addEventListener('focusout', function (e) {
+      if (!drop.contains(e.relatedTarget)) open(false);
     });
     document.addEventListener('click', function (e) {
       if (!drop.contains(e.target)) open(false);

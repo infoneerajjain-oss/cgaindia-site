@@ -86,21 +86,10 @@ p { margin: 0 0 16px; }
 .utility a:hover { color: #fff; text-decoration: underline; }
 .utility .spacer { margin-left: auto; }
 
-header.masthead {
-  position: sticky; top: 0; z-index: 40;
-  background: rgba(255,255,255,.94);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--rule);
-}
-.masthead .wrap { display: flex; align-items: center; gap: 20px; min-height: 76px; }
-.brand { display: flex; align-items: center; }
-.brand img { height: 34px; width: auto; }
-nav.primary { margin-left: auto; display: flex; gap: 26px; align-items: center; }
-nav.primary a {
-  font-family: var(--display); font-size: 14.5px; font-weight: 600;
-  color: var(--ink); text-decoration: none; letter-spacing: -.01em;
-}
-nav.primary a:hover { color: var(--petrol); }
+.masthead .wrap { display: flex; align-items: center; gap: 16px; }
+.brand { display: flex; align-items: center; flex: 0 0 auto; }
+.brand img { width: auto; }
+.primary a { text-decoration: none; letter-spacing: -.01em; }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -115,9 +104,8 @@ nav.primary a:hover { color: var(--petrol); }
 .btn-lg { padding: 15px 26px; font-size: 16px; }
 
 @media (max-width: 860px) {
-  nav.primary { display: none; }
-  .masthead .wrap { min-height: 64px; }
-  .brand img { height: 27px; }
+  .masthead .wrap { min-height: 62px; }
+  .brand img { height: 28px; }
 }
 
 /* ---------- Hero ---------- */
@@ -555,7 +543,7 @@ footer.site a:hover { color: var(--cyan); }
     linear-gradient(100deg, rgba(6,51,74,.94) 0%, rgba(6,51,74,.86) 42%, rgba(6,51,74,.42) 72%, rgba(6,51,74,.30) 100%),
     linear-gradient(to top, rgba(6,51,74,.75), rgba(6,51,74,0) 45%);
 }
-.hero-inner { padding-block: clamp(56px, 8vw, 104px); max-width: var(--wrap); }
+.hero-inner { padding-block: clamp(56px, 8vw, 104px); margin-block: auto; }
 .hero .eyebrow { color: var(--gold); }
 .hero h1 {
   color: #fff; max-width: 19ch;
@@ -567,7 +555,7 @@ footer.site a:hover { color: var(--cyan); }
 .hero .credentials { margin-top: 34px; border-top: 1px solid rgba(255,255,255,.22); padding-top: 18px; }
 .hero .credentials span { color: #A9CCDC; border: 0; }
 
-.hero-foot { border-top: 1px solid rgba(255,255,255,.16); background: rgba(6,51,74,.55); }
+.hero-foot { margin-top: auto; border-top: 1px solid rgba(255,255,255,.16); background: rgba(6,51,74,.55); backdrop-filter: blur(3px); }
 .hero-foot .wrap { display: flex; align-items: center; gap: 20px; padding-block: 14px; }
 .hero-cap { position: relative; flex: 1; min-height: 18px; margin: 0; font-family: var(--mono); font-size: 11.5px; letter-spacing: .04em; color: #A9CCDC; }
 .hero-cap span { position: absolute; inset: 0; opacity: 0; transition: opacity .6s ease; }
@@ -605,4 +593,83 @@ footer.site a:hover { color: var(--cyan); }
 @media (prefers-reduced-motion: reduce) {
   .hero-bg img { transition: none; transform: none; }
   .hero-bg img.is-on { transform: none; }
+}
+
+/* ================= HEADER / HERO ALIGNMENT FIXES ================= */
+
+/* Header: one consistent row, nothing overflowing.
+   Scoped to desktop so it cannot override the mobile menu block above. */
+.masthead .wrap { min-height: 72px; }
+.drop-btn { font-size: 15px; letter-spacing: -.01em; }
+
+@media (min-width: 981px) {
+  .masthead .wrap { flex-wrap: nowrap; }
+  .primary { margin-left: auto; display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; }
+  .primary > a, .drop-btn { white-space: nowrap; line-height: 1; }
+  .primary > a.btn { margin-left: 10px; padding: 11px 18px; }
+}
+
+/* Below 1120px the full nav stops fitting — hand over to the menu button early */
+@media (max-width: 1120px) and (min-width: 981px) {
+  .primary { gap: 0; }
+  .primary > a, .drop-btn { padding-inline: 9px; font-size: 14.5px; }
+  .primary > a:not(.btn)::after { left: 9px; right: 9px; }
+}
+
+/* Hero text: sits on the left half, never runs under the photo's bright side */
+.hero-inner > * { max-width: 100%; }
+.hero .eyebrow { margin-bottom: 0; }
+.hero h1 { max-width: 17ch; text-wrap: balance; }
+.hero .lede { max-width: 50ch; }
+
+/* Photo focal points, so faces and desks are not cropped out */
+.hero-bg img { object-position: 50% 45%; }
+.hero-bg img[src*="neeraj"] { object-position: 62% 32%; }
+.hero-bg img[src*="office-01"] { object-position: 48% 58%; }
+.hero-bg img[src*="office-02"] { object-position: 42% 55%; }
+
+@media (max-width: 980px) {
+  .hero { min-height: clamp(460px, 82vh, 640px); }
+  .hero h1 { max-width: 20ch; }
+  .hero::before {
+    background:
+      linear-gradient(160deg, rgba(6,51,74,.93) 0%, rgba(6,51,74,.80) 55%, rgba(6,51,74,.62) 100%),
+      linear-gradient(to top, rgba(6,51,74,.80), rgba(6,51,74,0) 50%);
+  }
+}
+@media (max-width: 560px) {
+  .hero h1 { max-width: none; }
+  .hero-actions .btn { flex: 1 1 100%; }
+  .hero .credentials { gap: 10px 18px; font-size: 11px; }
+}
+
+/* Fixed mobile call bar was covering the last rows of content */
+@media (max-width: 720px) {
+  body { padding-bottom: 62px; }
+}
+
+/* Due-date cards: number and status on top, name below — nothing cramped */
+.ds-list { grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); }
+.ds-list li {
+  display: grid; align-items: start; gap: 4px 12px;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "day when" "txt txt";
+  padding: 18px 20px 19px;
+}
+.ds-list .rail-day { grid-area: day; font-size: 30px; }
+.ds-list li > span:nth-child(2) { grid-area: txt; margin-top: 6px; }
+.ds-list .rail-when { grid-area: when; justify-self: end; align-self: center; margin-left: 0; white-space: nowrap; }
+.ds-list .rail-name { font-size: 15.5px; }
+.ds-list .rail-sub { font-size: 13px; }
+
+/* Column tops should line up on service pages */
+.svc-main > :first-child, .svc-main .prose > :first-child { margin-top: 0; }
+.checklist li::before { top: 7px; }
+
+/* Mobile hero: keep the whole block on screen above the call bar */
+@media (max-width: 720px) {
+  .hero { min-height: auto; }
+  .hero-inner { padding-block: clamp(40px, 9vw, 64px) clamp(30px, 7vw, 48px); }
+  .hero .credentials { margin-top: 26px; padding-top: 16px; }
+  .hero-foot .wrap { padding-block: 12px; }
 }
