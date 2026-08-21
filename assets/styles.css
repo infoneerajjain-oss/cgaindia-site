@@ -673,3 +673,72 @@ footer.site a:hover { color: var(--cyan); }
   .hero .credentials { margin-top: 26px; padding-top: 16px; }
   .hero-foot .wrap { padding-block: 12px; }
 }
+
+/* ================= FOOTER ALIGNMENT ================= */
+footer.site .top { grid-template-columns: 1.5fr repeat(3, 1fr); gap: 30px 40px; align-items: start; }
+footer.site .top > div > p:first-of-type { margin-top: 16px; }
+footer.site h4 { margin-top: 4px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.14); }
+footer.site ul li { padding: 6px 0; }
+footer.site img.mark { display: block; }
+.legal .row { row-gap: 10px; }
+.legal .row a { padding: 2px 0; }
+.disclaimer { max-width: none; }
+@media (max-width: 820px) {
+  footer.site .top { grid-template-columns: 1fr 1fr; gap: 30px; }
+  footer.site .top > div:first-child { grid-column: 1 / -1; }
+}
+
+/* ================= TEAM TEASER (home) ================= */
+.teamteaser { background: var(--white); border-block: 1px solid var(--rule); }
+.teamteaser .wrap { display: grid; grid-template-columns: 1fr .9fr; gap: clamp(30px, 5vw, 64px); align-items: center; padding-block: clamp(50px, 6vw, 78px); }
+.tt-copy h2 { font-size: clamp(24px, 3.2vw, 36px); margin: 14px 0 16px; max-width: 20ch; }
+.tt-copy p { color: var(--muted); max-width: 54ch; margin-bottom: 26px; }
+.tt-faces { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.tt-faces li { margin: 0; }
+.tt-faces li { aspect-ratio: 4 / 5; overflow: hidden; border: 1px solid var(--rule); background: var(--cyan-wash); }
+.tt-faces img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 16%; display: block; }
+.tt-faces li:nth-child(even) { transform: translateY(16px); }
+
+/* ================= ABOUT PAGE ================= */
+.two-col { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(26px, 4vw, 56px); align-items: start; }
+.two-col h2 { font-size: clamp(24px, 3vw, 34px); max-width: 16ch; margin-top: 12px; }
+.two-col .prose > :first-child { margin-top: 0; }
+
+.journey { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.journey li { position: relative; display: grid; grid-template-columns: 96px 1fr; gap: 24px; padding: 26px 0; border-top: 1px solid var(--rule); }
+.journey li:last-child { border-bottom: 1px solid var(--rule); }
+.jn { font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: .14em; color: var(--gold-deep); padding-top: 5px; }
+.journey h3 { font-size: clamp(19px, 2.2vw, 23px); margin-bottom: 9px; }
+.journey p { color: var(--muted); max-width: 74ch; margin: 0; }
+
+.vm .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); padding-block: 0; }
+.vm-card { background: var(--petrol-deep); color: #CFE4EE; padding: clamp(34px, 4.5vw, 56px); }
+.vm-card .eyebrow { color: var(--gold); }
+.vm-card h2 { color: #fff; font-size: clamp(24px, 3.2vw, 34px); margin: 14px 0 18px; max-width: 16ch; }
+.vm-card p { color: #A9CCDC; max-width: 46ch; }
+.vm-card p + p { margin-top: 14px; }
+.vm-card--alt { background: var(--ink); }
+
+.values { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: clamp(22px, 2.6vw, 34px); }
+.value { border-top: 3px solid var(--gold); padding-top: 18px; }
+.value h3 { font-size: 19px; margin-bottom: 10px; }
+.value p { color: var(--muted); font-size: 15.5px; }
+.value .cost { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; color: var(--petrol); }
+
+.clients { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: clamp(20px, 2.4vw, 30px); }
+.client { background: var(--white); border: 1px solid var(--rule); border-left: 3px solid var(--cyan); padding: 24px 22px; }
+.client h3 { font-size: 18px; margin-bottom: 10px; }
+.client p { color: var(--muted); font-size: 15.5px; margin: 0; }
+
+@media (max-width: 860px) {
+  .teamteaser .wrap { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .two-col h2 { max-width: none; }
+  .vm .wrap { grid-template-columns: 1fr; }
+  .journey li { grid-template-columns: 1fr; gap: 8px; }
+  .jn { padding-top: 0; }
+}
+
+/* the disclaimer is a <p> inside the footer, so it inherits the 40ch column width */
+footer.site .disclaimer { max-width: 108ch; }
+footer.site .legal .row span:first-child { max-width: none; margin-top: 0; }
