@@ -74,7 +74,7 @@
   <!-- ============ HERO ============ -->
   <div class="hero">
     <div class="wrap">
-      <div>
+      <div class="hero-copy">
         <p class="eyebrow">Advocate-led · CA · CS · CMA</p>
         <h1>Every registration, return and licence your business owes — <em>filed on time.</em></h1>
         <p class="lede">A single professional desk for Indian statutory work. Tell us the problem in your own words; working out which form it actually is, and which authority it goes to, is our job.</p>
@@ -89,41 +89,62 @@
         </div>
       </div>
 
-      <!-- Signature element: the live filing rail -->
-      <aside class="rail" aria-label="Recurring statutory due dates">
-        <div class="rail-head">
-          <p class="eyebrow">The monthly cycle</p>
-          <strong>Four dates most late fees come from</strong>
+      <!-- Rotating view of the practice -->
+      <div class="cycle" id="heroCycle" aria-label="Inside Canjain Global Advisors">
+        <figure class="cycle-frame">
+          <img class="is-on" src="assets/neeraj-office.jpg" alt="Neeraj Jain, Founder and CEO" width="1200" height="800">
+          <img src="assets/office-01.jpg" alt="Filing desks at the Canjain Global Advisors office" width="1200" height="800">
+          <img src="assets/neeraj-desk.jpg" alt="Neeraj Jain at his desk" width="1000" height="666">
+          <img src="assets/office-02.jpg" alt="Client meeting desk at the office" width="1200" height="800">
+          <figcaption class="cycle-cap">
+            <span class="is-on">Neeraj Jain — Founder &amp; CEO</span>
+            <span>The filing floor — GST, TDS and ROC</span>
+            <span>Where the work actually gets done</span>
+            <span>Where clients sit down with their manager</span>
+          </figcaption>
+        </figure>
+        <div class="cycle-dots" role="tablist" aria-label="Choose a photo">
+          <button type="button" class="is-on" aria-label="Photo 1"></button>
+          <button type="button" aria-label="Photo 2"></button>
+          <button type="button" aria-label="Photo 3"></button>
+          <button type="button" aria-label="Photo 4"></button>
         </div>
-        <ul class="rail-list" id="railList">
-          <li data-day="7">
-            <span class="rail-day">07</span>
-            <span><span class="rail-name">TDS &amp; TCS deposit</span><span class="rail-sub">Tax deducted last month</span></span>
-            <span class="rail-when" data-when></span>
-          </li>
-          <li data-day="11">
-            <span class="rail-day">11</span>
-            <span><span class="rail-name">GSTR-1</span><span class="rail-sub">Outward supplies, monthly filers</span></span>
-            <span class="rail-when" data-when></span>
-          </li>
-          <li data-day="15">
-            <span class="rail-day">15</span>
-            <span><span class="rail-name">PF &amp; ESI</span><span class="rail-sub">Employer and employee share</span></span>
-            <span class="rail-when" data-when></span>
-          </li>
-          <li data-day="20">
-            <span class="rail-day">20</span>
-            <span><span class="rail-name">GSTR-3B</span><span class="rail-sub">Summary return and payment</span></span>
-            <span class="rail-when" data-when></span>
-          </li>
-        </ul>
-        <div class="rail-foot">
-          QRMP filers follow a quarterly cycle, and dates move when the government grants an extension.
-          <a href="#enquire">Ask us to map your exact calendar →</a>
-        </div>
-      </aside>
+      </div>
     </div>
   </div>
+
+  <!-- ============ DUE-DATE STRIP ============ -->
+  <section class="datestrip" aria-label="Recurring statutory due dates">
+    <div class="wrap">
+      <div class="ds-head">
+        <p class="eyebrow">The monthly cycle</p>
+        <strong>Four dates most late fees come from</strong>
+      </div>
+      <ul class="ds-list" id="railList">
+        <li data-day="7">
+          <span class="rail-day">07</span>
+          <span><span class="rail-name">TDS &amp; TCS deposit</span><span class="rail-sub">Tax deducted last month</span></span>
+          <span class="rail-when" data-when></span>
+        </li>
+        <li data-day="11">
+          <span class="rail-day">11</span>
+          <span><span class="rail-name">GSTR-1</span><span class="rail-sub">Outward supplies, monthly filers</span></span>
+          <span class="rail-when" data-when></span>
+        </li>
+        <li data-day="15">
+          <span class="rail-day">15</span>
+          <span><span class="rail-name">PF &amp; ESI</span><span class="rail-sub">Employer and employee share</span></span>
+          <span class="rail-when" data-when></span>
+        </li>
+        <li data-day="20">
+          <span class="rail-day">20</span>
+          <span><span class="rail-name">GSTR-3B</span><span class="rail-sub">Summary return and payment</span></span>
+          <span class="rail-when" data-when></span>
+        </li>
+      </ul>
+      <p class="ds-foot">QRMP filers follow a quarterly cycle, and dates move when the government grants an extension. <a href="#enquire">Ask us to map your exact calendar →</a></p>
+    </div>
+  </section>
 
   <!-- ============ PRACTICES ============ -->
   <section id="practices">
@@ -310,7 +331,27 @@
   </section>
 
   <!-- ============ FIRM ============ -->
-  <section id="firm" class="band">
+  <!-- ============ FOUNDER ============ -->
+  <section class="founder">
+    <div class="wrap">
+      <div class="fd-photo reveal">
+        <img src="assets/neeraj-advocate.jpg" alt="Neeraj Jain, Founder and CEO of Canjain Global Advisors" width="760" height="950" loading="lazy" decoding="async">
+      </div>
+      <div class="fd-copy reveal">
+        <p class="eyebrow">Who you are dealing with</p>
+        <blockquote>Business grow karne ke liye sirf sales nahi, <em>compliance bhi strong honi chahiye.</em></blockquote>
+        <p class="fd-name">Neeraj Jain</p>
+        <p class="fd-role">Founder &amp; CEO, Canjain Global Advisors Pvt Ltd</p>
+        <p class="fd-body">The firm was built on a simple idea: a business owner should be able to describe a problem in ordinary language and have somebody else work out which form it is, which authority it goes to and what it will cost. Critical matters are reviewed personally; the rest runs on a system that does not depend on one person remembering a date.</p>
+        <div class="fd-actions">
+          <a class="btn btn-solid" href="#enquire">Talk to the firm</a>
+          <a class="btn btn-line" href="#team">Meet the team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="firm" class="band firmband">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Why Canjain</p>
@@ -326,27 +367,27 @@
       </div>
 
       <div class="reasons reveal">
-        <div class="reason">
+        <div class="reason"><span class="rn">01</span>
           <h3>A named manager, not a ticket queue</h3>
           <p>You get one person's number. They know your file, your due dates and what is pending at which office.</p>
         </div>
-        <div class="reason">
+        <div class="reason"><span class="rn">02</span>
           <h3>Fees split honestly</h3>
           <p>Professional fee and government fee are quoted separately, in writing, before work starts. Nothing is added at filing stage.</p>
         </div>
-        <div class="reason">
+        <div class="reason"><span class="rn">03</span>
           <h3>We say no when a filing is not needed</h3>
           <p>Plenty of licences are sold to businesses that do not require them. We check applicability first, even when it costs us the engagement.</p>
         </div>
-        <div class="reason">
+        <div class="reason"><span class="rn">04</span>
           <h3>Every discipline under one roof</h3>
           <p>Advocate, CA, CS and CMA work in the same file, so tax positions, ROC records and legal drafting do not contradict each other.</p>
         </div>
-        <div class="reason">
+        <div class="reason"><span class="rn">05</span>
           <h3>Built for non-resident clients</h3>
           <p>Overseas founders, NRI taxpayers and foreign subsidiaries handled fully online, with documents collected and returned digitally.</p>
         </div>
-        <div class="reason">
+        <div class="reason"><span class="rn">06</span>
           <h3>Filed, then followed up</h3>
           <p>An acknowledgement is not an outcome. We track the application until the certificate, order or objection actually lands.</p>
         </div>
@@ -415,7 +456,7 @@
       <p class="tier">Leadership</p>
       <div class="team reveal">
         <figure class="member">
-          <div class="shot shot-init" aria-hidden="true"><span>N</span></div>
+          <div class="shot"><img src="assets/neeraj.jpg" alt="Neeraj Jain" width="640" height="800" loading="lazy" decoding="async"></div>
           <figcaption>
             <span class="nm">Neeraj Jain</span>
             <span class="rl">Founder &amp; CEO</span>
@@ -785,6 +826,43 @@
     nextItem = items[0];
   }
   if (nextItem) nextItem.classList.add('is-next');
+
+  /* ---- Hero photo rotation ---- */
+  (function () {
+    var box = document.getElementById('heroCycle');
+    if (!box) return;
+    var shots = box.querySelectorAll('.cycle-frame > img');
+    var caps  = box.querySelectorAll('.cycle-cap span');
+    var dots  = box.querySelectorAll('.cycle-dots button');
+    if (shots.length < 2) return;
+
+    var at = 0, timer = null;
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function show(n) {
+      at = (n + shots.length) % shots.length;
+      for (var i = 0; i < shots.length; i++) {
+        shots[i].classList.toggle('is-on', i === at);
+        if (caps[i]) caps[i].classList.toggle('is-on', i === at);
+        if (dots[i]) dots[i].classList.toggle('is-on', i === at);
+      }
+    }
+    function start() { if (!still && !timer) timer = setInterval(function () { show(at + 1); }, 5000); }
+    function stop() { clearInterval(timer); timer = null; }
+
+    for (var i = 0; i < dots.length; i++) {
+      (function (n) {
+        dots[n].addEventListener('click', function () { stop(); show(n); start(); });
+      })(i);
+    }
+    box.addEventListener('mouseenter', stop);
+    box.addEventListener('mouseleave', start);
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { stop(); } else { start(); }
+    });
+    show(0);
+    start();
+  })();
 
   /* ---- Scroll reveal ---- */
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
