@@ -38,13 +38,41 @@
     <a class="brand" href="index.html" aria-label="Canjain Global Advisors — home">
       <img src="assets/cga-logo.jpeg" alt="Canjain Global Advisors">
     </a>
-    <nav class="primary">
-      <a href="services.html">Services</a>
-      <a href="index.html#filings">Filings</a>
+
+    <button class="burger" type="button" data-burger aria-label="Menu" aria-expanded="false" aria-controls="primaryNav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="primary" id="primaryNav">
+      <div class="drop" data-drop>
+        <button class="drop-btn" type="button" data-drop-btn aria-expanded="false">Services <span class="caret" aria-hidden="true"></span></button>
+        <div class="drop-panel" data-drop-panel>
+          <div class="dp-col">
+            <p class="dp-head">Tax &amp; returns</p>
+            <a href="itr-filing.html">Income tax returns</a>
+            <a href="tds-returns.html">TDS computation &amp; returns</a>
+            <a href="gst-registration.html">GST registration</a>
+            <a href="gst-return-filing.html">GST return filing</a>
+          </div>
+          <div class="dp-col">
+            <p class="dp-head">Specialist</p>
+            <a href="crypto-tax.html">Crypto &amp; VDA taxation</a>
+            <a href="foreign-income.html">Foreign income &amp; NRI</a>
+            <a href="international-tax.html">International taxation</a>
+            <a href="ecommerce-sellers.html">E-commerce sellers</a>
+          </div>
+          <div class="dp-col dp-cta">
+            <p class="dp-head">Not listed?</p>
+            <p class="dp-note">Registrations, trademark, licences, ROC and environment work are handled too — the full register is on one page.</p>
+            <a class="dp-all" href="services.html">See all services →</a>
+          </div>
+        </div>
+      </div>
+      <a href="index.html#practices">Practices</a>
       <a href="index.html#process">How we work</a>
       <a href="index.html#team">Team</a>
       <a href="index.html#offices">Offices</a>
-      <a class="btn btn-solid" href="index.html#enquire">Get a quote</a>
+      <a class="btn btn-gold" href="index.html#enquire">Get a quote</a>
     </nav>
   </div>
 </header>
@@ -256,24 +284,6 @@
   <a class="wa" href="https://wa.me/919899900300?text=Hi%20Canjain%2C%20I%20need%20help%20with%20" target="_blank" rel="noopener">WhatsApp</a>
 </div>
 
-<script>
-(function () {
-  'use strict';
-  var y = document.getElementById('yr');
-  if (y) y.textContent = new Date().getFullYear();
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var targets = document.querySelectorAll('.reveal');
-  if (reduce || !('IntersectionObserver' in window)) {
-    targets.forEach(function (t) { t.classList.add('in'); });
-  } else {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.08 });
-    targets.forEach(function (t) { io.observe(t); });
-  }
-})();
-</script>
+<script src="assets/site.js"></script>
 </body>
 </html>
